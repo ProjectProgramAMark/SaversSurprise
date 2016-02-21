@@ -38,7 +38,15 @@
         android:layout_height="wrap_content"
         android:text="Begin!"
         android:id="@+id/beginButton"
+        android:layout_marginTop="103dp"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp" />
+        android:layout_alignStart="@+id/welcomeTextView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:id="@+id/logoutButton"
+        android:layout_alignTop="@+id/beginButton"
+        android:layout_alignEnd="@+id/welcomeTextView" />
 </RelativeLayout>

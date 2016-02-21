@@ -1,9 +1,11 @@
 package markmoussa.me.saverssurprise;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,30 +55,39 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = emailField.getText().toString();
                 String password = passwordField.getText().toString();
-                String streetAddressText = emailField.getText().toString();
-                String cityText = cityField.getText().toString();
-                String stateText = stateField.getText().toString();
-                String zipText = zipField.getText().toString();
-                String phoneText = phoneField.getText().toString();
+                final String streetAddressText = emailField.getText().toString();
+                final String cityText = cityField.getText().toString();
+                final String stateText = stateField.getText().toString();
+                final String zipText = zipField.getText().toString();
+                final String phoneText = phoneField.getText().toString();
 
                 myFirebaseRef.createUser(email, password, new Firebase.ValueResultHandler<Map<String, Object>>() {
                     @Override
                     public void onSuccess(Map<String, Object> result) {
                         System.out.println("Successfully created user account with uid: " + result.get("uid"));
-                        
+                        String uid = result.get("uid").toString();
+                        Firebase markRef = myFirebaseRef.child("users");
+//                        System.out.println(result.get("email").toString());
+                        User mark = new User(streetAddressText, cityText, stateText, zipText, phoneText, uid);
+                        markRef.child(uid).setValue(mark);
+                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                     }
                     @Override
                     public void onError(FirebaseError firebaseError) {
                         // there was an error
-                        System.out.println("There was an error lil niglet");
+                        Log.v("MARKS_LOG", "There was an error lil niglet");
+                        Log.v("MARKS_LOG", "FB: " + firebaseError.getMessage());
                         Context context = getApplicationContext();
                         CharSequence text = "Login level NOT dank!";
                         int duration = Toast.LENGTH_SHORT;
-
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
                     }
                 });
+
+//                Firebase markRef = myFirebaseRef.child("users").child("markisawesome");
+//                User mark = new User("Amber Ridge Lane", "Valrico", "FL", "33594", "8137310742", );
+//                markRef.setValue(mark);
             }
         });
 

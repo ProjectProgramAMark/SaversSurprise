@@ -62,9 +62,8 @@
         android:ems="10"
         android:id="@+id/stateField"
         android:hint="State"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/registerTextView"
-        android:layout_alignEnd="@+id/registerTextView" />
+        android:layout_alignTop="@+id/cityField"
+        android:layout_toEndOf="@+id/registerSubmitButton" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -72,10 +71,10 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/cityField"
-        android:layout_alignTop="@+id/stateField"
+        android:hint="City"
+        android:layout_centerVertical="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/registerTextView"
-        android:hint="City" />
+        android:layout_toStartOf="@+id/registerSubmitButton" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -83,9 +82,9 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/zipField"
-        android:layout_alignTop="@+id/stateField"
-        android:layout_toEndOf="@+id/stateField"
-        android:hint="Zip Code" />
+        android:hint="Zip Code"
+        android:layout_below="@+id/stateField"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -93,19 +92,16 @@
         android:inputType="phone"
         android:ems="10"
         android:id="@+id/phoneField"
-        android:layout_below="@+id/cityField"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="38dp"
         android:hint="Phone #"
-        android:layout_toStartOf="@+id/stateField"
-        android:layout_alignEnd="@+id/streetAddressField" />
+        android:layout_below="@+id/zipField"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/registerSubmitButton"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/phoneField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp" />
+        android:layout_alignEnd="@+id/registerTextView" />
 </RelativeLayout>

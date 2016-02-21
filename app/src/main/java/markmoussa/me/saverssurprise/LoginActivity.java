@@ -7,14 +7,19 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+
+import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -51,6 +56,19 @@ public class LoginActivity extends AppCompatActivity {
                     public void onAuthenticated(AuthData authData) {
                         System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        String url = "https://scorching-torch-468.firebaseio.com/users/" + authData.getUid();
+                        final Firebase usernameRef = new Firebase(url);
+                        usernameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot snapshot) {
+                                // do some stuff once
+
+                                Log.v("DANK: ", snapshot.child("city").getValue().toString());
+                            }
+                            @Override
+                            public void onCancelled(FirebaseError firebaseError) {
+                            }
+                        });
                     }
                     @Override
                     public void onAuthenticationError(FirebaseError firebaseError) {
