@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="markmoussa.me.saverssurprise.RegisterActivity"
+    tools:showIn="@layout/activity_register">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailField"
+        android:layout_marginTop="79dp"
+        android:hint="Enter your email"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Register"
+        android:id="@+id/registerTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/passwordField"
+        android:layout_below="@+id/emailField"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="34dp"
+        android:hint="Enter your password" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/streetAddressField"
+        android:layout_below="@+id/passwordField"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="36dp"
+        android:hint="Enter your street address" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/stateField"
+        android:hint="State"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/registerTextView"
+        android:layout_alignEnd="@+id/registerTextView" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/cityField"
+        android:layout_alignTop="@+id/stateField"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/registerTextView"
+        android:hint="City" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPostalAddress"
+        android:ems="10"
+        android:id="@+id/zipField"
+        android:layout_alignTop="@+id/stateField"
+        android:layout_toEndOf="@+id/stateField"
+        android:hint="Zip Code" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/phoneField"
+        android:layout_below="@+id/cityField"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="38dp"
+        android:hint="Phone #"
+        android:layout_toStartOf="@+id/stateField"
+        android:layout_alignEnd="@+id/streetAddressField" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/registerSubmitButton"
+        android:layout_below="@+id/phoneField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp" />
+</RelativeLayout>

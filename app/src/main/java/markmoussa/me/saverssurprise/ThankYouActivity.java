@@ -39,5 +39,12 @@ public class ThankYouActivity extends AppCompatActivity {
         });
     }
 
+    public void onRestart() {
+        super.onRestart();
+        finish();
+        System.out.println("On Restart called!!");
+        startActivity(new Intent(this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    }
+
 
 }

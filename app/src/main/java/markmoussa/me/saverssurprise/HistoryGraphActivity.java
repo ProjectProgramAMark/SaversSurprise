@@ -1,5 +1,6 @@
 package markmoussa.me.saverssurprise;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -29,4 +30,10 @@ public class HistoryGraphActivity extends AppCompatActivity {
         historyGraph.addSeries(series);
     }
 
+    public void onRestart() {
+        super.onRestart();
+        finish();
+        System.out.println("On Restart called!!");
+        startActivity(new Intent(this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    }
 }
