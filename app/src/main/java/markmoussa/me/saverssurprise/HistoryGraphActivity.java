@@ -21,11 +21,13 @@ public class HistoryGraphActivity extends AppCompatActivity {
 
         GraphView historyGraph = (GraphView) findViewById(R.id.historyGraph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[] {
+                // Fake this data for now
                 new DataPoint(0, 1),
                 new DataPoint(1, 5),
                 new DataPoint(2, 3),
                 new DataPoint(3, 2),
-                new DataPoint(4, 6)
+                new DataPoint(4, 6),
+                new DataPoint(5, 7)
         });
         historyGraph.addSeries(series);
     }

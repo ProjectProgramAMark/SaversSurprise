@@ -38,9 +38,9 @@
         android:layout_height="wrap_content"
         android:text="Begin!"
         android:id="@+id/beginButton"
-        android:layout_marginTop="103dp"
         android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/welcomeTextView" />
+        android:layout_alignEnd="@+id/welcomeTextView"
+        android:layout_marginTop="83dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -48,5 +48,5 @@
         android:text="Logout"
         android:id="@+id/logoutButton"
         android:layout_alignTop="@+id/beginButton"
-        android:layout_alignEnd="@+id/welcomeTextView" />
+        android:layout_alignStart="@+id/welcomeTextView" />
 </RelativeLayout>

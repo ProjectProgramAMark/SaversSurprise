@@ -27,4 +27,6 @@ dependencies {
     compile 'com.firebase:firebase-client-android:2.5.1+'
     compile 'com.jjoe64:graphview:4.0.1'
     compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
+
 }

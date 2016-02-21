@@ -9,51 +9,34 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="markmoussa.me.saverssurprise.ThankYouActivity"
-    tools:showIn="@layout/activity_thank_you">
+    tools:context="markmoussa.me.saverssurprise.ProductReturn"
+    tools:showIn="@layout/activity_product_return">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="You rock!"
-        android:id="@+id/thankYouTextView"
+        android:text="Thank you!"
+        android:id="@+id/textView3"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp" />
+        android:layout_marginTop="57dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="You&apos;re a super saver! You can either check your history now, or get out and SAVE DAT MONEY"
-        android:id="@+id/saveDatMoneyTextView"
-        android:layout_below="@+id/thankYouTextView"
+        android:text="Click the button below to see your randomized purchase!"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View History"
-        android:id="@+id/viewHistoryButton"
+        android:text="Click Here!"
+        android:id="@+id/button"
         android:layout_centerVertical="true"
-        android:layout_toStartOf="@+id/thankYouTextView" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Exit"
-        android:id="@+id/exitButton"
-        android:layout_alignTop="@+id/viewHistoryButton"
-        android:layout_toEndOf="@+id/thankYouTextView" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buy Stuff"
-        android:id="@+id/runTheTrap"
-        android:layout_below="@+id/viewHistoryButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -55,7 +55,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onAuthenticated(AuthData authData) {
                         System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                        i.putExtra("uid", authData.getUid());
+
                         String url = "https://scorching-torch-468.firebaseio.com/users/" + authData.getUid();
                         final Firebase usernameRef = new Firebase(url);
                         usernameRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -69,6 +71,8 @@ public class LoginActivity extends AppCompatActivity {
                             public void onCancelled(FirebaseError firebaseError) {
                             }
                         });
+                        startActivity(i);
+
                     }
                     @Override
                     public void onAuthenticationError(FirebaseError firebaseError) {

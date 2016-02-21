@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +31,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        Intent intent = getIntent();
+        String uid = intent.getStringExtra("uid");
+//        Bundle extras = getIntent().getExtras();
+        //Log.v("Extras: ", extras.toString());
+//        if (extras != null) {
+//            uid = extras.getString("uid");
+//        } else {
+//            Log.v("NULL: ", "Uid null at the Main activity");
+//            uid = null;
+//        }
+        final Intent i = new Intent(new Intent(MainActivity.this, AddSavingsActivity.class));
+        i.putExtra("uid", uid);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -40,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         beginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, AddSavingsActivity.class));
+                startActivity(i);
             }
         });
 

@@ -53,8 +53,8 @@ public class RegisterActivity extends AppCompatActivity {
         registerSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailField.getText().toString();
-                String password = passwordField.getText().toString();
+                final String email = emailField.getText().toString();
+                final String password = passwordField.getText().toString();
                 final String streetAddressText = emailField.getText().toString();
                 final String cityText = cityField.getText().toString();
                 final String stateText = stateField.getText().toString();
@@ -68,9 +68,11 @@ public class RegisterActivity extends AppCompatActivity {
                         String uid = result.get("uid").toString();
                         Firebase markRef = myFirebaseRef.child("users");
 //                        System.out.println(result.get("email").toString());
-                        User mark = new User(streetAddressText, cityText, stateText, zipText, phoneText, uid);
+                        User mark = new User(email, password, streetAddressText, cityText, stateText, zipText, phoneText, uid, 0.0);
                         markRef.child(uid).setValue(mark);
-                        startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                        Intent i = new Intent(RegisterActivity.this, MainActivity.class);
+                        i.putExtra("uid", uid);
+                        startActivity(i);
                     }
                     @Override
                     public void onError(FirebaseError firebaseError) {
@@ -84,10 +86,6 @@ public class RegisterActivity extends AppCompatActivity {
                         toast.show();
                     }
                 });
-
-//                Firebase markRef = myFirebaseRef.child("users").child("markisawesome");
-//                User mark = new User("Amber Ridge Lane", "Valrico", "FL", "33594", "8137310742", );
-//                markRef.setValue(mark);
             }
         });
 
