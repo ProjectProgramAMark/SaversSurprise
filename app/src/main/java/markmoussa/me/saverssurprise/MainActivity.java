@@ -11,10 +11,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Firebase ref = new Firebase("https://scorching-torch-468.firebaseio.com/");
+        ref.addAuthStateListener(new Firebase.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(AuthData authData) {
+                if (authData != null) {
+                    System.out.println("You are logged in!");
+                } else {
+                    // user is not logged in
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                }
+            }
+        });
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

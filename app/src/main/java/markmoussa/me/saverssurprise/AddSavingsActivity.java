@@ -27,6 +27,12 @@ public class AddSavingsActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Add the value to the shared preferences persistence
+                // Grab value from the database and add whatever the number added is
+                // Push value back to database
+
+                // Take separate value and comment and make it into JSON, to push to database
+                // so that it can show up in history
                 startActivity(new Intent(AddSavingsActivity.this, ThankYouActivity.class));
             }
         });
