@@ -1,11 +1,13 @@
 package markmoussa.me.saverssurprise;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class AddSavingsActivity extends AppCompatActivity {
 
@@ -24,8 +26,19 @@ public class AddSavingsActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        TextView amountSavedTextView = (TextView) findViewById(R.id.amountSavedTextView);
+        EditText amountSavedEditor = (EditText) findViewById(R.id.amountSavedEditor);
 
+        TextView commentsTextView = (TextView) findViewById(R.id.commentsTextView);
+        EditText commentsTextEditor = (EditText) findViewById(R.id.commentsTextEditor);
 
+        Button submitButton = (Button) findViewById(R.id.submitSavedButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AddSavingsActivity.this, ThankYouActivity.class));
+            }
+        });
     }
 
 }

@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="How much did you save?"
-        android:id="@+id/savedTextView"
+        android:id="@+id/amountSavedTextView"
         android:layout_marginTop="71dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -28,7 +28,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/amountSavedEditor"
-        android:layout_below="@+id/savedTextView"
+        android:layout_below="@+id/amountSavedTextView"
         android:layout_alignParentStart="true"
         android:layout_marginTop="32dp" />
 
